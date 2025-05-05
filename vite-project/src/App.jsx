@@ -1,15 +1,25 @@
-import { useState } from 'react' 
-import './App.css' 
-import Home from './components/Home/Home'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+import { useState } from "react";
+import "./App.css";
+import Home from "./components/Home/Home";
+import { Provider } from "react-redux"; 
+import Gallery from "./components/Gallery/Gallery";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
-  
-
   return (
-    <>
-      <Home/>
+    <> 
+    <Navbar />
+    <Router> 
+      <div>
+        <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Gallery" element={<Gallery />} />
+      </Routes>
+      </div>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

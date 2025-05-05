@@ -1,0 +1,14 @@
+/* body{
+    background-color: rgb(47, 142, 224);
+    z-index: 0;
+} */
+
+.DepartmentDisplay {
+  color: rgb(22, 19, 19);
+}
+
+.DepartmentDisplay h3{
+  display: grid; 
+  /* background-color: white;  */
+  z-index: 1;
+}

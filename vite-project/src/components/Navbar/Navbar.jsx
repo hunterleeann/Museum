@@ -8,7 +8,7 @@ const Navbar = () => {
     <img src={tdm} className="logo"/> 
       <ul>
         <li>Home</li>
-        <li>Gallery</li>
+        <li><a href="/Gallery">Gallery</a></li>
         <li>Login</li>
         <li>Sign up</li> 
       </ul>
