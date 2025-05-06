@@ -9,6 +9,14 @@
 
 .DepartmentDisplay h3{
   display: grid; 
-  /* background-color: white;  */
+  background-color: white; 
   z-index: 1;
+} 
+
+button {
+display: flex; 
+}
+
+.randomObjectArt{
+    background-color: white; 
 }
