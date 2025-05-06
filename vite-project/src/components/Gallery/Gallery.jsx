@@ -27,17 +27,21 @@ const Gallery = () => {
     <div>
       <h2 className="DepartmentList">Browse by Department</h2>
       {isLoading && <p>Loading departments...</p>}
-      <ul className="DepartmentDisplay">
+      <div className="DepartmentDisplay">
+      {/* <ul className="DepartmentDisplay"> */}
         {department &&
           department.map((dept) => (
-            <li key={dept.departmentId}>
-              <button onClick={() => setSelectedDepartment(dept.departmentId)}>
+            // <li key={dept.departmentId}>
+            <div className="items"> 
+              <button key={dept.departmentId} class="btn btn-primary" onClick={() => setSelectedDepartment(dept.departmentId)}>
                 {dept.displayName}
               </button>
-            </li>
+              </div> 
+            // </li>
             
           ))}
-      </ul>
+          </div>
+      {/* </ul> */}
       {console.log("selected: ", selectedDepartment)}
       {/* Show object from selected department */}
       {selectedDepartment && (

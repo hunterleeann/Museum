@@ -4,15 +4,16 @@ import {
   useGetSelectedDepartmentQuery,
   useGetRandomObjectQuery,
 } from "./GallerySlice";
+import "./Gallery.css";
 
 export default function SelectedDepartment({ selectedDepartment }) {
   const {
     data: selectedData,
     isSuccess,
     isLoading,
-  } = useGetSelectedDepartmentQuery(selectedDepartment);
+  } = useGetSelectedDepartmentQuery(selectedDepartment); //get selected department data
   const [randomObject, setRandomObject] = useState(0);
-  const [randObjData, setRandObjData] = useState([]);
+  const [randObjData, setRandObjData] = useState([]); // hold the randomly selected object ID from the department
 
   const {
     data: objectData,
@@ -20,7 +21,7 @@ export default function SelectedDepartment({ selectedDepartment }) {
     isSuccess: success,
   } = useGetRandomObjectQuery(randomObject); //get object data
 
-  console.log("num: ", selectedData?.total);
+  // console.log("num: ", selectedData?.total);
 
   useEffect(() => {
     if (isSuccess && selectedData?.total != null) {
@@ -46,7 +47,7 @@ export default function SelectedDepartment({ selectedDepartment }) {
     <div>
       {loading ? (
         <p>Loading object...</p>
-      ) : (
+      ) : ( 
         <>
           <div className="randomObjectArt">
             {/* {objectData && <p>Loaded...</p>} */}

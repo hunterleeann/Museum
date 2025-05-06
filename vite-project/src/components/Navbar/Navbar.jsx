@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="navbar"> 
     <img src={tdm} className="logo"/> 
       <ul>
-        <li>Home</li>
+        <li><a href="/Home">Home</a></li>
         <li><a href="/Gallery">Gallery</a></li>
         <li>Login</li>
         <li>Sign up</li> 

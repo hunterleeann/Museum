@@ -5,18 +5,44 @@
 
 .DepartmentDisplay {
   color: rgb(22, 19, 19);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* padding-top: 15%; */
 }
 
-.DepartmentDisplay h3{
+.DepartmentList {
+  color: white;
+}
+
+/* .DepartmentDisplay h3{
   display: grid; 
   background-color: white; 
   z-index: 1;
-} 
+}  */
 
-button {
-display: flex; 
+/* .DepartmentDisplay li{
+    display: flex;
+} */
+div {
+  max-width: fit-content;
 }
 
-.randomObjectArt{
-    background-color: white; 
+button {
+  /* display: inline-flex;  */
+  justify-content: space-evenly;
+  background-color: white;
+  padding: 10px;
+
+  /* display: flex; 
+background-color: white; 
+z-index: 1; */
+}
+
+DepartmentDisplay .item {
+  display: grid;
+}
+
+.randomObjectArt {
+  background-color: white;
 }
