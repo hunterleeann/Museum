@@ -4,7 +4,8 @@ import {
   useGetDepartmentsQuery,
 } from "./GallerySlice";
 import "./Gallery.css";
-import SelectedDepartment from "./SelectedDepartment";
+import SelectedDepartment from "./SelectedDepartment"; 
+import HighlightsOnly from "./HighlightsOnly"; 
 
 const Gallery = () => {
   const {
@@ -13,13 +14,14 @@ const Gallery = () => {
     isSuccess,
   } = useGetDepartmentsQuery(); //get department data
   const [department, setDepartment] = useState([]); 
-  const [isSelected, setIsSelected] = useState(false);
+  const [deptName, setDeptName] = useState();
+
   // const [randomObject, setRandomObject] = useState(0);
   const [selectedDepartment, setSelectedDepartment] = useState(null); //will hold departmentId #
 
   useEffect(() => {
     if (isSuccess) {
-      setDepartment(departmentData.departments);
+      setDepartment(departmentData.departments); 
     }
   }, [isSuccess]); //runs only when isSuccess or if departmentData changes
 
@@ -33,7 +35,7 @@ const Gallery = () => {
           department.map((dept) => (
             // <li key={dept.departmentId}>
             <div className="items"> 
-              <button key={dept.departmentId} class="btn btn-primary" onClick={() => setSelectedDepartment(dept.departmentId)}>
+              <button key={dept.departmentId} class="btn btn-primary" onClick={() => setSelectedDepartment(dept.departmentId) & setDeptName(dept.displayName)}>
                 {dept.displayName}
               </button>
               </div> 
@@ -45,9 +47,10 @@ const Gallery = () => {
       {console.log("selected: ", selectedDepartment)}
       {/* Show object from selected department */}
       {selectedDepartment && (
-        <SelectedDepartment selectedDepartment={selectedDepartment} />
+        <SelectedDepartment selectedDepartment={selectedDepartment} /> 
       )}
-      {console.log("selected: ", selectedDepartment)}
+      <HighlightsOnly deptName={deptName}/>
+      {console.log("selected: ", deptName)}
     </div>
   );
 };

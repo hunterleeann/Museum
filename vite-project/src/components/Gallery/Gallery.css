@@ -46,3 +46,13 @@ DepartmentDisplay .item {
 .randomObjectArt {
   background-color: white;
 }
+
+.singleHighlighted {
+  background-color: white;
+  /* display: flex;  */
+  flex-direction: column;
+}
+
+.individual{
+    display: flex; 
+}

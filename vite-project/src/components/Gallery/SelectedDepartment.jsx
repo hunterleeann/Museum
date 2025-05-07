@@ -5,6 +5,7 @@ import {
   useGetRandomObjectQuery,
 } from "./GallerySlice";
 import "./Gallery.css";
+import HighlightsOnly from "./HighlightsOnly";
 
 export default function SelectedDepartment({ selectedDepartment }) {
   const {
@@ -23,15 +24,15 @@ export default function SelectedDepartment({ selectedDepartment }) {
 
   // console.log("num: ", selectedData?.total);
 
-  useEffect(() => {
-    if (isSuccess && selectedData?.total != null) {
-      const randIndex =
-        selectedData.objectIDs[
-          Math.floor(Math.random() * selectedData.objectIDs.length)
-        ];
-      setRandomObject(randIndex);
-    }
-  }, [isSuccess, selectedData]);
+  // useEffect(() => {
+  //   if (isSuccess && selectedData?.total != null) {
+  //     const randIndex =
+  //       selectedData.objectIDs[
+  //         Math.floor(Math.random() * selectedData.objectIDs.length)
+  //       ];
+  //     setRandomObject(randIndex);
+  //   }
+  // }, [isSuccess, selectedData]);
 
   useEffect(() => {
     if (success && randomObject != null) {
@@ -47,7 +48,7 @@ export default function SelectedDepartment({ selectedDepartment }) {
     <div>
       {loading ? (
         <p>Loading object...</p>
-      ) : ( 
+      ) : (
         <>
           <div className="randomObjectArt">
             {/* {objectData && <p>Loaded...</p>} */}
@@ -56,8 +57,11 @@ export default function SelectedDepartment({ selectedDepartment }) {
             <h2>Description: {randObjData.artistDisplayBio}</h2>
             <h2>Artist: {randObjData.artistDisplayName}</h2>
           </div>
+          {/* <HighlightedWork randomObject={randomObject}/> */}
         </>
-      )}
+      )} 
+      <HighlightsOnly setRandomObject={setRandomObject} randomObject={randomObject}/> 
+      {console.log("infoTwo: ", randObjData)}
     </div>
   );
 }

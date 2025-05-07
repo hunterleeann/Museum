@@ -25,8 +25,24 @@ const GalleryApi = museumApi.injectEndpoints({
         }),
         providesTag: ["department"],
     }),
+    getHighlightedArt: builder.query({
+        query: (deptName) => ({
+          url: `search?isHighlight=true&q=${deptName}`,
+          method: "GET",
+        }),
+        providesTag: ["highlightedObj"],
+      }), 
+      getHighObject: builder.query({
+        query: (highlightedItem) => ({
+          url: `/objects/${highlightedItem}`,
+          method: "GET",
+        }),
+        providesTag: ["object"],
+      }),
 }),
 });
+
+//https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight
 
 const gallerySlice = createSlice({
   name: "departments",
@@ -39,5 +55,5 @@ const gallerySlice = createSlice({
 
 export default gallerySlice.reducer;
 
-export const { useGetDepartmentsQuery, useGetSelectedDepartmentQuery, useGetRandomObjectQuery } =
+export const { useGetDepartmentsQuery, useGetSelectedDepartmentQuery, useGetRandomObjectQuery, useGetHighlightedArtQuery, useGetHighObjectQuery } =
   museumApi;
